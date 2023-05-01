@@ -1,28 +1,20 @@
-class Boton {
-  constructor(contenedorElemento, texto) {
+class Regalo {
+  constructor(contenedorElemento) {
     this.contenedorElemento = contenedorElemento;
-    this.texto = texto;
-    this.onClick = this.onClick.bind(this);
-
-    const boton = document.createElement("button");
-
-    boton.textContent = texto;
-    boton.addEventListener("click", this.onClick);
-    this.contenedorElemento.append(boton);
+    this.abrirRegalo = this.abrirRegalo.bind(this);
+    this.image = document.createElement("img");
+    this.image.src = "gift-icon.png";
+    this.image.addEventListener("click", this.abrirRegalo);
+    this.contenedorElemento.append(this.image);
   }
-
-  onClick() {
-    console.log("Hiciste clic en: " + this.texto);
-    const estatus = document.querySelector("#estatus");
-    estatus.textContent = "Clic en " + this.texto;
+  abrirRegalo(event) {
+    this.image.src = "giphy.gif";
+    this.image.removeEventListener("click", this.abrirRegalo);
   }
 }
 
-const botonContenedor = document.querySelector("#menu");
-const boton1 = new Boton(botonContenedor, "A");
-const boton2 = new Boton(botonContenedor, "B");
-const boton3 = new Boton(botonContenedor, "C");
-
+const contenedorElemento = document.querySelector("#regalo");
+const regalo = new Regalo(contenedorElemento);
 
   
   
