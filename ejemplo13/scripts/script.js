@@ -36,6 +36,7 @@ class Boton {
     document.dispatchEvent(new CustomEvent("boton-click", {detail: eventInfo,}));
   }
 }
+
 const menu = new Menu();
 
 
